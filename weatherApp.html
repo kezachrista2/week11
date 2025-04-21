@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather Detection App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #ffffff;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Weather Detection App</h2>
+    <input type="text" id="weatherInput" placeholder="Enter weather (e.g. sunny)">
+    <button onclick="checkWeather()">Check Weather</button>
+    <p id="message"></p>
+  </div>
+
+  <script>
+    function checkWeather() {
+      const input = document.getElementById('weatherInput').value.toLowerCase().trim();
+      const messageElement = document.getElementById('message');
+      let message = "";
+
+      if (input === "sunny") {
+        message = "It's sunny! Wear sunglasses and apply sunscreen.";
+      } else if (input === "rainy") {
+        message = "It's rainy! Don't forget your umbrella.";
+      } else if (input === "cloudy") {
+        message = "It's cloudy! You might want to carry a light jacket.";
+      } else if (input === "snowy") {
+        message = "It's snowy! Dress warmly and stay safe.";
+      } else {
+        message = "Sorry, I don’t recognize that weather condition.";
+      }
+
+      messageElement.textContent = message;
+    }
+  </script>
+</body>
+</html>
